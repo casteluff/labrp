@@ -1,8 +1,13 @@
+# Lê quantas senhas serão lidas
 n = int(input())
 
+# Enquanto houver caso de teste resolva o caso de teste atual
+# Contador para imprimir o número na saída
 count = 1
 while (n > 0):
 
+	# Lê as entradas e transforma
+	# o tipo das 10 primeiras em inteiro
     senhaFinal = []
     senhas = []
     linhas = []
@@ -14,6 +19,8 @@ while (n > 0):
             linha[e] = int(linha[e])
 
     
+    # Adiciona uma lista de 12 números na lista "senhas"
+    # para cada senha dada em letras na entrada
     for linha in linhas:
         senha = []
         for e in range(10, 16):
@@ -34,17 +41,20 @@ while (n > 0):
                 senha.append(linha[9])
         senhas.append(senha)
 
+    # Confere os elementos de cada senha de 2 em 2 e guarda
+    # aquele que se repete n vezes na lista "senhaFinal"
     for e in range(0, 12, 2):
         nums = []
         for senha in senhas:
             nums.append(senha[e])
             nums.append(senha[e + 1])
         for num in nums:
-            if (nums.count(num) == len(senhas)):
+            if (nums.count(num) == n):
                 senhaFinal.append(num)
                 break
 
     
+    # Imprime a saída com a senha formatada
     print("Teste %d" % count)
     for d in senhaFinal:
         print(d, end="")
@@ -52,6 +62,7 @@ while (n > 0):
     print()
     print()
    
-
+    # Lê um novo valor para n
+    # Implementa o contador
     n = int(input())
     count += 1
